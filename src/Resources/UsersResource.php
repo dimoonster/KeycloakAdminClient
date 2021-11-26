@@ -3,6 +3,7 @@
 namespace hstng\KeycloakAdminClient\Resources;
 
 use hstng\KeycloakAdminClient\KeycloakProvider;
+use hstng\KeycloakAdminClient\Representation\UsersList;
 use hstng\KeycloakAdminClient\Requests\UserSearchRequest;
 use hstng\KeycloakAdminClient\Requests\UserSearchRequestException;
 
@@ -31,9 +32,9 @@ class UsersResource {
     /**
      * @throws UserSearchRequestException
      */
-    public function search(UserSearchRequest $searchRequest) : array {
+    public function search(UserSearchRequest $searchRequest) : UsersList {
         $queryParams = $searchRequest->toRequestArray();
-
-        return $this->getProvider()->get($this->getPath(), $queryParams);
+        $data =  $this->getProvider()->get($this->getPath(), $queryParams);
+        return UsersList::fromArray($data);
     }
 }
