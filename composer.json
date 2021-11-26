@@ -1,0 +1,29 @@
+{
+    "name": "hstng/keycloak-admin-client",
+    "type": "library",
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "BSD",
+    "autoload": {
+        "psr-4": {
+            "hstng\\KeycloakAdminClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "hstng\\KeycloakAdminClient\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Popov Dmitry",
+            "email": "dimoonster@gmail.com"
+        }
+    ]
+}
