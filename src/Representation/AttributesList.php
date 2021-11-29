@@ -2,7 +2,10 @@
 
 namespace hstng\KeycloakAdminClient\Representation;
 
-class AttributesList {
+use hstng\KeycloakAdminClient\Tools\RepresentationIterator;
+use IteratorAggregate;
+
+class AttributesList implements IteratorAggregate {
     /** @var array<string, AttributeRepresentation> */
     private array $attributes;
 
@@ -32,5 +35,12 @@ class AttributesList {
 
     public function getAttribute(string $attributeName) : AttributeRepresentation {
         return $this->attributes[$attributeName];
+    }
+
+    /**
+     * @return RepresentationIterator<string, AttributeRepresentation>
+     */
+    public function getIterator() : RepresentationIterator {
+        return new RepresentationIterator($this->attributes);
     }
 }
