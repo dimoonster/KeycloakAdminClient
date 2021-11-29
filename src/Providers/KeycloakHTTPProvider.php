@@ -108,7 +108,7 @@ class KeycloakHTTPProvider implements KeycloakProvider
     }
 
     private function prepareOptions(array $options, bool $bearerAuth) : array {
-        $options['debug'] = true;
+        $options['debug'] = false;
         $options['http_errors'] = true;
         if(!isset($options['headers'])) $options['headers'] = [];
         if($bearerAuth === true) {
