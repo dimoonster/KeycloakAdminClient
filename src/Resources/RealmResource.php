@@ -3,6 +3,7 @@
 namespace hstng\KeycloakAdminClient\Resources;
 
 use hstng\KeycloakAdminClient\KeycloakProvider;
+use hstng\KeycloakAdminClient\Representation\RealmRepresentation;
 
 class RealmResource {
     private string $realm;
@@ -34,5 +35,8 @@ class RealmResource {
         return new ProtocolOpenIDResource($this);
     }
 
-
+    public function toRepresentation() : RealmRepresentation {
+        $data = $this->getProvider()->get($this->getAuthPath(), []);
+        return RealmRepresentation::fromArray($data);
+    }
 }
