@@ -49,9 +49,9 @@ class UserRepresentation  {
             $data['username'],
             (bool)$data['enabled'],
             (bool)$data['emailVerified'],
-            $data['email'],
-            $data['firstName'],
-            $data['lastName'],
+            $data['email'] ?? '',
+            $data['firstName'] ?? '',
+            $data['lastName'] ?? '',
             $data['requiredActions'] ?? [],
             AttributesList::fromArray($data['attributes'] ?? []),
         );
